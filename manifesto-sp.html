@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manifiesto para un Aprendizaje Profundo y Autoconsciente</title>
+    <!-- Chosen Palette: Neutral Blue Focus -->
+    <!-- Application Structure Plan: The SPA is designed with a top-down information hierarchy. It starts with a strong hero section for the main declaration, followed by a visually distinct grid for the core values to emphasize their comparative nature. The core of the application is an interactive accordion for the 12 principles. This structure was chosen to prevent overwhelming the user with a wall of text. It provides a clear overview first and encourages exploration by allowing users to drill down into specific principles at their own pace. This non-linear exploration path is more engaging and user-friendly than a simple linear document. -->
+    <!-- Visualization & Content Choices: Report Info: Core values (e.g., Active Application over Passive Consumption) -> Goal: Compare -> Presentation: Two-column grid with styled text -> Interaction: Subtle hover scale effect -> Justification: The grid visually separates and contrasts the concepts, while the hover effect adds dynamism without being distracting. Report Info: 12 Principles with detailed explanations -> Goal: Organize & Inform -> Presentation: Interactive Accordion -> Interaction: On-click expand/collapse of each principle -> Justification: This is the best method to present a large amount of structured text content without cluttering the UI. It allows for a scannable overview and user-directed deep dives into the content. Library/Method: Vanilla JS for accordion logic. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        .hover-scale { transition: transform 0.2s ease-in-out; }
+        .hover-scale:hover { transform: scale(1.02); }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), padding 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+        .accordion-content.open {
+            max-height: 1000px;
+            padding-top: 1rem;
+            padding-bottom: 1.5rem;
+        }
+        .accordion-icon {
+            transition: transform 0.3s ease-in-out;
+        }
+        .open .accordion-icon {
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+
+    <div class="min-h-screen p-4 sm:p-8 flex flex-col items-center">
+        <div class="w-full max-w-5xl mx-auto py-8 sm:py-12 px-4">
+            <header class="text-center mb-16 sm:mb-20">
+                <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-tight mb-3">
+                    Manifiesto para un Aprendizaje Profundo y Autoconsciente
+                </h1>
+                <br>
+                <p class="text-md sm:text-lg font-light text-gray-600">
+                    Por Mario Sánchez & Mario Linares-Vásquez. Departamento de Ingeniería de Sistemas y Computación. Universidad de los Andes Colombia.  2025. <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>
+
+                    <center>
+                        <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-nd.png" width="80">
+                    </center>
+                </p>
+                <br>
+<br>
+                <a href="index.html"><p> <center>Clic para versión en inglés <img
+  src="https://flagcdn.com/w20/us.png"
+  srcset="https://flagcdn.com/w40/us.png 2x"
+  width="20">
+  </center>
+</p></a>
+            </header>
+    
+            <section class="mb-16 sm:mb-20">
+                <p class="text-xl sm:text-2xl font-light text-center leading-relaxed max-w-4xl mx-auto">
+                    Estamos descubriendo mejores formas de aprender y enseñar en un mundo de profundo cambio tecnológico y distracción constante. A través de este trabajo, hemos llegado a valorar:
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-center mt-12">
+                    <div class="flex flex-col items-center p-4">
+                        <span class="text-2xl sm:text-3xl font-bold text-gray-900 hover-scale cursor-default">Aplicación Activa</span>
+                        <span class="text-lg text-gray-500 font-medium my-1">sobre</span>
+                        <span class="text-2xl sm:text-3xl font-light text-gray-600 hover-scale cursor-default">Consumo Pasivo</span>
+                    </div>
+                    <div class="flex flex-col items-center p-4">
+                        <span class="text-2xl sm:text-3xl font-bold text-gray-900 hover-scale cursor-default">Compromiso Enfocado</span>
+                        <span class="text-lg text-gray-500 font-medium my-1">sobre</span>
+                        <span class="text-2xl sm:text-3xl font-light text-gray-600 hover-scale cursor-default">Atención Fragmentada</span>
+                    </div>
+                    <div class="flex flex-col items-center p-4">
+                        <span class="text-2xl sm:text-3xl font-bold text-gray-900 hover-scale cursor-default">Indagación Colaborativa</span>
+                        <span class="text-lg text-gray-500 font-medium my-1">sobre</span>
+                        <span class="text-2xl sm:text-3xl font-light text-gray-600 hover-scale cursor-default">Estudio Aislado</span>
+                    </div>
+                    <div class="flex flex-col items-center p-4">
+                        <span class="text-2xl sm:text-3xl font-bold text-gray-900 hover-scale cursor-default">Mentalidad Experimental</span>
+                        <span class="text-lg text-gray-500 font-medium my-1">sobre</span>
+                        <span class="text-2xl sm:text-3xl font-light text-gray-600 hover-scale cursor-default">Rendimiento Impecable</span>
+                    </div>
+                </div>
+                <p class="text-md sm:text-lg text-center font-light text-gray-600 mt-8">
+                    Aunque hay valor en los elementos de la derecha, valoramos más los de la izquierda.
+                </p>
+            </section>
+    
+            <section class="w-full">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-10">
+                    Principios Detrás del Manifiesto
+                </h2>
+                <div id="accordion" class="space-y-4">
+                    
+                    <div class="accordion-item bg-white rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300">
+                        <button class="accordion-button w-full text-left p-6 font-semibold text-lg sm:text-xl text-gray-800 focus:outline-none flex justify-between items-center">
+                            <span class="flex items-baseline space-x-4">
+                                <span class="text-blue-600 font-bold text-xl">1.</span>
+                                <span>Presencia Activa y Participación</span>
+                            </span>
+                            <span class="accordion-icon text-2xl font-light text-gray-400">+</span>
+                        </button>
+                        <div class="accordion-content text-gray-700 leading-relaxed">
+                            <p class="mb-4">Este principio es fundamental porque el aprendizaje no es una transferencia pasiva de información, sino un proceso activo de construcción de conocimiento. Cuando estamos verdaderamente presentes—haciendo preguntas, participando en discusiones y enfocándonos en la tarea—construimos modelos mentales duraderos. Esto conduce a una comprensión más profunda, una mejor retención a largo plazo y un sentido de propiedad sobre nuestra educación. Por el contrario, la asistencia pasiva, donde el cuerpo está en la sala pero la mente está en otro lugar, conduce a un conocimiento superficial que se olvida rápidamente, una sensación de desconexión con el tema y, en última instancia, tiempo perdido.</p>
+                            <p class="italic text-sm text-gray-500">Lectura Adicional: <strong class="font-medium">Make It Stick: The Science of Successful Learning</strong> por Peter C. Brown, Henry L. Roediger III, y Mark A. McDaniel.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item bg-white rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300">
+                        <button class="accordion-button w-full text-left p-6 font-semibold text-lg sm:text-xl text-gray-800 focus:outline-none flex justify-between items-center">
+                             <span class="flex items-baseline space-x-4">
+                                <span class="text-blue-600 font-bold text-xl">2.</span>
+                                <span>Desafíos Prácticos y Trabajo Manual</span>
+                            </span>
+                            <span class="accordion-icon text-2xl font-light text-gray-400">+</span>
+                        </button>
+                        <div class="accordion-content text-gray-700 leading-relaxed">
+                            <p class="mb-4">La teoría sin aplicación es frágil. El trabajo manual es esencial porque une la brecha entre conceptos abstractos y la realidad concreta. Aplicar el conocimiento para resolver un problema práctico nos obliga a confrontar los detalles y matices que la teoría sola no puede transmitir. Este proceso construye habilidades del mundo real, desarrolla confianza y hace que el conocimiento sea tangible y memorable. Los estudiantes que evitan esta lucha pueden volverse "inteligentes de libros" pero carecen de la capacidad crucial para resolver problemas reales, poseyendo una comprensión que colapsa ante la primera señal de presión del mundo real.</p>
+                            <p class="italic text-sm text-gray-500">Lectura Adicional: <strong class="font-medium">Shop Class as Soulcraft: An Inquiry into the Value of Work</strong> por Matthew B. Crawford.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item bg-white rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300">
+                        <button class="accordion-button w-full text-left p-6 font-semibold text-lg sm:text-xl text-gray-800 focus:outline-none flex justify-between items-center">
+                             <span class="flex items-baseline space-x-4">
+                                <span class="text-blue-600 font-bold text-xl">3.</span>
+                                <span>Santuarios para el Trabajo Profundo</span>
+                            </span>
+                            <span class="accordion-icon text-2xl font-light text-gray-400">+</span>
+                        </button>
+                        <div class="accordion-content text-gray-700 leading-relaxed">
+                            <p class="mb-4">Los problemas complejos demandan un pensamiento sostenido e ininterrumpido. Nuestros cerebros no pueden operar a su máxima capacidad cuando cambian constantemente entre tareas. Este principio se trata de reconocer que el trabajo profundo requiere crear un espacio intencional, libre de distracciones. Proteger estos "santuarios" permite avances, la producción de trabajo de alta calidad y una profunda sensación de logro. Ignorar esto significa quedar atrapado en un estado de trabajo superficial, donde las interrupciones constantes matan la productividad y conducen a la frustración y a la incapacidad de progresar en los problemas que más importan.</p>
+                            <p class="italic text-sm text-gray-500">Lectura Adicional: <strong class="font-medium">Deep Work: Rules for Focused Success in a Distracted World</strong> por Cal Newport.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item bg-white rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300">
+                        <button class="accordion-button w-full text-left p-6 font-semibold text-lg sm:text-xl text-gray-800 focus:outline-none flex justify-between items-center">
+                             <span class="flex items-baseline space-x-4">
+                                <span class="text-blue-600 font-bold text-xl">4.</span>
+                                <span>Valorar el Experimento, No Solo el Resultado</span>
+                            </span>
+                            <span class="accordion-icon text-2xl font-light text-gray-400">+</span>
+                        </button>
+                        <div class="accordion-content text-gray-700 leading-relaxed">
+                            <p class="mb-4">Este principio redefine el "fracaso" como "datos". Una mentalidad experimental es crítica porque la verdadera innovación y el aprendizaje provienen de probar cosas nuevas, no de tener miedo a equivocarse. Cuando valoramos el intento en sí mismo, construimos resiliencia, fomentamos la creatividad y desarrollamos una mentalidad de crecimiento que es esencial para abordar desafíos difíciles. La alternativa es un miedo al fracaso que paraliza la acción, fomenta el apego a soluciones "seguras" pero subóptimas y crea una inmensa ansiedad en torno al estándar imposible de la perfección.</p>
+                            <p class="italic text-sm text-gray-500">Lectura Adicional: <strong class="font-medium">Mindset: The New Psychology of Success</strong> por Carol S. Dweck.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item bg-white rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300">
+                        <button class="accordion-button w-full text-left p-6 font-semibold text-lg sm:text-xl text-gray-800 focus:outline-none flex justify-between items-center">
+                             <span class="flex items-baseline space-x-4">
+                                <span class="text-blue-600 font-bold text-xl">5.</span>
+                                <span>Resolver Problemas Colaborativamente</span>
+                            </span>
+                            <span class="accordion-icon text-2xl font-light text-gray-400">+</span>
+                        </button>
+                        <div class="accordion-content text-gray-700 leading-relaxed">
+                            <p class="mb-4">Los desafíos de ingeniería modernos son casi siempre demasiado grandes y complejos para una sola perspectiva. Este principio enfatiza que el trabajo en equipo no es solo una "habilidad blanda" sino una competencia central para la resolución de problemas. Al trabajar juntos, exponemos nuestras ideas al escrutinio, descubrimos nuestros puntos ciegos y sintetizamos diversos puntos de vista en soluciones que son mucho más robustas y creativas de lo que un solo individuo podría producir. Elegir trabajar de forma aislada conduce a una cámara de eco, permitiendo que fallas críticas en la lógica queden sin abordar y dejándonos sin preparación para la naturaleza intensamente colaborativa del mundo moderno.</p>
+                            <p class="italic text-sm text-gray-500">Lectura Adicional: <strong class="font-medium">Team of Teams: New Rules of Engagement for a Complex World</strong> por Gen. Stanley McChrystal.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item bg-white rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300">
+                        <button class="accordion-button w-full text-left p-6 font-semibold text-lg sm:text-xl text-gray-800 focus:outline-none flex justify-between items-center">
+                             <span class="flex items-baseline space-x-4">
+                                <span class="text-blue-600 font-bold text-xl">6.</span>
+                                <span>Empuñar la IA como una Herramienta Poderosa, No como una Muleta Cognitiva</span>
+                            </span>
+                            <span class="accordion-icon text-2xl font-light text-gray-400">+</span>
+                        </button>
+                        <div class="accordion-content text-gray-700 leading-relaxed">
+                            <p class="mb-4">La inteligencia artificial puede ser un socio fenomenal en el aprendizaje, capaz de automatizar tareas tediosas y abrir nuevas vías de investigación. Este principio se trata de aprovechar ese poder de manera responsable. Usar la IA como una herramienta para aumentar nuestro propio pensamiento desarrolla habilidades cruciales en alfabetización digital e ingeniería de indicaciones. Sin embargo, usarla como una muleta para eludir el proceso de pensamiento en sí mismo puede llevar a una atrofia de nuestras propias habilidades cognitivas. La dependencia excesiva resulta en una comprensión superficial, una incapacidad para resolver problemas sin la herramienta y un estado de impotencia cuando la IA no está disponible o es incorrecta.</p>
+                            <p class="italic text-sm text-gray-500">Lectura Adicional: <strong class="font-medium">Co-Intelligence: Living and Working with AI</strong> por Ethan Mollick.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item bg-white rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300">
+                        <button class="accordion-button w-full text-left p-6 font-semibold text-lg sm:text-xl text-gray-800 focus:outline-none flex justify-between items-center">
+                             <span class="flex items-baseline space-x-4">
+                                <span class="text-blue-600 font-bold text-xl">7.</span>
+                                <span>Dejar que la Curiosidad sea tu Brújula</span>
+                            </span>
+                            <span class="accordion-icon text-2xl font-light text-gray-400">+</span>
+                        </button>
+                        <div class="accordion-content text-gray-700 leading-relaxed">
+                            <p class="mb-4">La motivación intrínseca es un motor mucho más poderoso y sostenible para el aprendizaje que cualquier presión externa. Cuando somos guiados por la curiosidad genuina, el aprendizaje se transforma de una tarea en un acto gratificante de descubrimiento. Esto conduce a una pasión por el tema que nos impulsa a ir más allá del plan de estudios y construir una comprensión profunda y autodirigida. Confiar únicamente en motivadores extrínsecos como las calificaciones hace que el aprendizaje se sienta transaccional; el conocimiento solo se retiene el tiempo suficiente para el examen y se desecha rápidamente, lo que lleva al agotamiento y a la falta de interés genuino.</p>
+                            <p class="italic text-sm text-gray-500">Lectura Adicional: <strong class="font-medium">Drive: The Surprising Truth About What Motivates Us</strong> por Daniel H. Pink.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item bg-white rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300">
+                        <button class="accordion-button w-full text-left p-6 font-semibold text-lg sm:text-xl text-gray-800 focus:outline-none flex justify-between items-center">
+                             <span class="flex items-baseline space-x-4">
+                                <span class="text-blue-600 font-bold text-xl">8.</span>
+                                <span>Buscar el "Por qué" Detrás del "Qué"</span>
+                            </span>
+                            <span class="accordion-icon text-2xl font-light text-gray-400">+</span>
+                        </button>
+                        <div class="accordion-content text-gray-700 leading-relaxed">
+                            <p class="mb-4">El contexto proporciona significado. Sin entender el propósito y la relevancia en el mundo real de lo que estamos aprendiendo, el conocimiento se convierte en una colección de hechos inconexos que son difíciles de retener y aplicar. Buscar el "porqué" conecta nuestro trabajo con un contexto humano y social más amplio, lo que aumenta dramáticamente la motivación y la capacidad de aplicar el conocimiento de maneras nuevas y creativas. Ignorar esto conduce al temido síndrome de "¿Por qué estamos aprendiendo esto?", donde el material se siente irrelevante y se olvida fácilmente.</p>
+                            <p class="italic text-sm text-gray-500">Lectura Adicional: <strong class="font-medium">Start with Why: How Great Leaders Inspire Everyone to Take Action</strong> por Simon Sinek.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item bg-white rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300">
+                        <button class="accordion-button w-full text-left p-6 font-semibold text-lg sm:text-xl text-gray-800 focus:outline-none flex justify-between items-center">
+                             <span class="flex items-baseline space-x-4">
+                                <span class="text-blue-600 font-bold text-xl">9.</span>
+                                <span>Abrazar el Aburrimiento Productivo</span>
+                            </span>
+                            <span class="accordion-icon text-2xl font-light text-gray-400">+</span>
+                        </button>
+                        <div class="accordion-content text-gray-700 leading-relaxed">
+                            <p class="mb-4">Un cerebro que está constantemente saturado de información digital no tiene la oportunidad de reflexionar, sintetizar o generar pensamiento original. Este principio afirma que el "aburrimiento" no es un estado que deba evitarse, sino una condición necesaria para el pensamiento profundo. Al desconectarnos conscientemente del torrente de estimulación, entrenamos nuestra capacidad de concentración y le damos a nuestra mente el espacio tranquilo necesario para conectar ideas y consolidar recuerdos. Una evitación crónica del aburrimiento conduce a una incapacidad para concentrarse sin estimulación, una sensación constante de ansiedad cuando no se está ocupado y una capacidad disminuida para la creatividad.</p>
+                            <p class="italic text-sm text-gray-500">Lectura Adicional: <strong class="font-medium">Stolen Focus: Why You Can't Pay Attention—and How to Think Deeply Again</strong> por Johann Hari.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item bg-white rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300">
+                        <button class="accordion-button w-full text-left p-6 font-semibold text-lg sm:text-xl text-gray-800 focus:outline-none flex justify-between items-center">
+                             <span class="flex items-baseline space-x-4">
+                                <span class="text-blue-600 font-bold text-xl">10.</span>
+                                <span>Elegir el Enfoque sobre el Miedo a Perderse Algo (FOMO)</span>
+                            </span>
+                            <span class="accordion-icon text-2xl font-light text-gray-400">+</span>
+                        </button>
+                        <div class="accordion-content text-gray-700 leading-relaxed">
+                            <p class="mb-4">Nuestra atención es nuestro recurso más valioso y finito. Cada momento que dedicamos a una notificación de redes sociales o a una noticia de última hora es un momento robado a nuestra capacidad de aprender y crear. Este principio es una declaración de control sobre ese recurso. Al desconectarnos intencionalmente del flujo constante de actualizaciones, reducimos el estrés, mejoramos la calidad de nuestro trabajo y estamos más presentes en nuestras propias vidas. Sucumbir al FOMO, en cambio, crea un estado de ansiedad perpetua y atención fragmentada que hace que el trabajo profundo sea imposible y nos deja sintiéndonos abrumados.</p>
+                            <p class="italic text-sm text-gray-500">Lectura Adicional: <strong class="font-medium">Digital Minimalism: Choosing a Focused Life in a Noisy World</strong> por Cal Newport.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item bg-white rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300">
+                        <button class="accordion-button w-full text-left p-6 font-semibold text-lg sm:text-xl text-gray-800 focus:outline-none flex justify-between items-center">
+                             <span class="flex items-baseline space-x-4">
+                                <span class="text-blue-600 font-bold text-xl">11.</span>
+                                <span>Aprender a un Ritmo Sostenible</span>
+                            </span>
+                            <span class="accordion-icon text-2xl font-light text-gray-400">+</span>
+                        </button>
+                        <div class="accordion-content text-gray-700 leading-relaxed">
+                            <p class="mb-4">El cerebro es un órgano biológico, no una máquina; tiene límites y requiere descanso para funcionar de manera óptima. Este principio reconoce que el aprendizaje es una maratón, no un sprint. Priorizar el bienestar y adoptar un ritmo sostenible conduce a una mejor retención a largo plazo, una mejor salud mental y física, y una relación positiva y duradera con el acto de aprender. La "cultura del ajetreo" de estudiar de memoria y las noches en vela conducen directamente al agotamiento, asegura que el conocimiento se olvide casi inmediatamente después de un examen y puede hacer que un estudiante llegue a resentir el proceso de educación.</p>
+                            <p class="italic text-sm text-gray-500">Lectura Adicional: <strong class="font-medium">Why We Sleep: Unlocking the Power of Sleep and Dreams</strong> por Matthew Walker.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item bg-white rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300">
+                        <button class="accordion-button w-full text-left p-6 font-semibold text-lg sm:text-xl text-gray-800 focus:outline-none flex justify-between items-center">
+                             <span class="flex items-baseline space-x-4">
+                                <span class="text-blue-600 font-bold text-xl">12.</span>
+                                <span>Dominar el Arte de Aprender en Sí Mismo</span>
+                            </span>
+                            <span class="accordion-icon text-2xl font-light text-gray-400">+</span>
+                        </button>
+                        <div class="accordion-content text-gray-700 leading-relaxed">
+                            <p class="mb-4">El conocimiento específico puede volverse obsoleto, pero la capacidad de aprender eficazmente es una habilidad atemporal y universal. Este principio se trata de la metacognición: pensar sobre nuestro propio pensamiento. Al reflexionar regularmente sobre nuestros métodos de aprendizaje, podemos identificar y descartar estrategias ineficientes, adoptar otras mejores y convertirnos en aprendices altamente efectivos y autónomos. Esta meta-habilidad aumenta nuestra confianza y nuestra capacidad para abordar cualquier nuevo desafío a lo largo de nuestras carreras. No hacerlo significa que podríamos seguir usando estrategias de aprendizaje ineficaces durante años, quedándonos estancados y encontrándonos incapaces de adaptarnos a nuevos campos de estudio.</p>
+                            <p class="italic text-sm text-gray-500">Lectura Adicional: <strong class="font-medium">A Mind for Numbers: How to Excel at Math and Science (Even If You Flunked Algebra)</strong> por Barbara Oakley.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const accordionItems = document.querySelectorAll('.accordion-item');
+
+            accordionItems.forEach(item => {
+                const button = item.querySelector('.accordion-button');
+                const content = item.querySelector('.accordion-content');
+
+                button.addEventListener('click', () => {
+                    const isOpened = item.classList.contains('open');
+
+                    accordionItems.forEach(i => {
+                        i.classList.remove('open');
+                        i.querySelector('.accordion-content').classList.remove('open');
+                    });
+
+                    if (!isOpened) {
+                        item.classList.add('open');
+                        content.classList.add('open');
+                    }
+                });
+            });
+        });
+    </script>
+     <p class="text-md sm:text-lg font-light text-gray-600"> <center>
+                    Por Mario Sánchez & Mario Linares-Vásquez. Departamento de Ingeniería de Sistemas y Computación. Universidad de los Andes Colombia. 2025. <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>
+                    </center>
+</body>
+</html>
